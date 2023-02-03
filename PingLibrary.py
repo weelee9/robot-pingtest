@@ -9,7 +9,7 @@ class PingLibrary(object):
         try:
             self.pingtool.ping(address, num_packets)
         except:
-            raise Exception("Host unreachable.")
+            raise Exception(f"Host {address} unreachable.")
 
         self.response = self.pingtool.parse()
 

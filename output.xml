@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.11.0 on win32)" generated="20230203 15:50:10.002" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.2 (Python 3.11.0 on win32)" generated="20230203 17:53:24.551" rpa="false" schemaversion="3">
 <suite id="s1" name="Ping Test" source="D:\Livewire\Repos\robot-pingtest\ping_test.robot">
-<test id="s1-t1" name="Given host is reachable" line="5">
+<test id="s1-t1" name="Given host is reachable" line="7">
 <kw name="Ping and Process Response">
 <arg>address=8.8.8.8</arg>
 <arg>num packets=1</arg>
@@ -9,8 +9,8 @@
 <var>${response}</var>
 <arg>${address}</arg>
 <arg>${num packets}</arg>
-<msg timestamp="20230203 15:50:10.051" level="INFO">${response} = {'sent': '1', 'rcvd': '1', 'lost': '0', 'loss': '0', 'min_ping': '7', 'max_ping': '7', 'avg_ping': '7'}</msg>
-<status status="PASS" starttime="20230203 15:50:10.029" endtime="20230203 15:50:10.051"/>
+<msg timestamp="20230203 17:53:24.606" level="INFO">${response} = {'sent': '1', 'rcvd': '1', 'lost': '0', 'loss': '0', 'min_ping': '6', 'max_ping': '6', 'avg_ping': '6'}</msg>
+<status status="PASS" starttime="20230203 17:53:24.588" endtime="20230203 17:53:24.606"/>
 </kw>
 <kw name="Process Response">
 <arg>${response}</arg>
@@ -18,90 +18,90 @@
 <arg>${LOSS}</arg>
 <arg>${response}[loss]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.051" level="INFO">${LOSS} = 0</msg>
-<status status="PASS" starttime="20230203 15:50:10.051" endtime="20230203 15:50:10.051"/>
+<msg timestamp="20230203 17:53:24.607" level="INFO">${LOSS} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.607" endtime="20230203 17:53:24.607"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${AVG PING}</arg>
 <arg>${response}[avg_ping]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.051" level="INFO">${AVG PING} = 7</msg>
-<status status="PASS" starttime="20230203 15:50:10.051" endtime="20230203 15:50:10.052"/>
+<msg timestamp="20230203 17:53:24.607" level="INFO">${AVG PING} = 6</msg>
+<status status="PASS" starttime="20230203 17:53:24.607" endtime="20230203 17:53:24.607"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${SENT}</arg>
 <arg>${response}[sent]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.052" level="INFO">${SENT} = 1</msg>
-<status status="PASS" starttime="20230203 15:50:10.052" endtime="20230203 15:50:10.052"/>
+<msg timestamp="20230203 17:53:24.607" level="INFO">${SENT} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.607" endtime="20230203 17:53:24.607"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${RECEIVED}</arg>
 <arg>${response}[rcvd]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.052" level="INFO">${RECEIVED} = 1</msg>
-<status status="PASS" starttime="20230203 15:50:10.052" endtime="20230203 15:50:10.052"/>
+<msg timestamp="20230203 17:53:24.608" level="INFO">${RECEIVED} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.608" endtime="20230203 17:53:24.608"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${LOST}</arg>
 <arg>${response}[lost]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.052" level="INFO">${LOST} = 0</msg>
-<status status="PASS" starttime="20230203 15:50:10.052" endtime="20230203 15:50:10.052"/>
+<msg timestamp="20230203 17:53:24.608" level="INFO">${LOST} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.608" endtime="20230203 17:53:24.608"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.051" endtime="20230203 15:50:10.052"/>
+<status status="PASS" starttime="20230203 17:53:24.606" endtime="20230203 17:53:24.608"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.029" endtime="20230203 15:50:10.052"/>
+<status status="PASS" starttime="20230203 17:53:24.587" endtime="20230203 17:53:24.608"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.028" endtime="20230203 15:50:10.053"/>
+<status status="PASS" starttime="20230203 17:53:24.587" endtime="20230203 17:53:24.609"/>
 </test>
-<test id="s1-t2" name="Loss within acceptable threshold" line="8">
+<test id="s1-t2" name="Loss within acceptable threshold" line="10">
 <kw name="Compare Loss with Threshold">
 <kw name="Log" library="BuiltIn">
 <arg>Sent \= ${SENT}, Received \= ${RECEIVED}, Lost \= ${LOST}, Packet Loss \= ${LOSS}%</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230203 15:50:10.055" level="INFO">Sent = 1, Received = 1, Lost = 0, Packet Loss = 0%</msg>
-<status status="PASS" starttime="20230203 15:50:10.055" endtime="20230203 15:50:10.055"/>
+<msg timestamp="20230203 17:53:24.610" level="INFO">Sent = 1, Received = 1, Lost = 0, Packet Loss = 0%</msg>
+<status status="PASS" starttime="20230203 17:53:24.610" endtime="20230203 17:53:24.610"/>
 </kw>
 <if>
 <branch type="IF" condition="${LOSS} &gt; ${MAX LOSS}">
 <kw name="Fail" library="BuiltIn">
 <arg>${LOSS}% loss is above ${MAX LOSS}% threshold.</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20230203 15:50:10.056" endtime="20230203 15:50:10.056"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.611" endtime="20230203 17:53:24.611"/>
 </kw>
-<status status="NOT RUN" starttime="20230203 15:50:10.055" endtime="20230203 15:50:10.056"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.610" endtime="20230203 17:53:24.611"/>
 </branch>
-<status status="PASS" starttime="20230203 15:50:10.055" endtime="20230203 15:50:10.056"/>
+<status status="PASS" starttime="20230203 17:53:24.610" endtime="20230203 17:53:24.611"/>
 </if>
-<status status="PASS" starttime="20230203 15:50:10.055" endtime="20230203 15:50:10.056"/>
+<status status="PASS" starttime="20230203 17:53:24.610" endtime="20230203 17:53:24.611"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.054" endtime="20230203 15:50:10.056"/>
+<status status="PASS" starttime="20230203 17:53:24.610" endtime="20230203 17:53:24.611"/>
 </test>
-<test id="s1-t3" name="Average ping within acceptable threshold" line="11">
+<test id="s1-t3" name="Average ping within acceptable threshold" line="13">
 <kw name="Compare Average Ping with Threshold">
 <kw name="Log" library="BuiltIn">
 <arg>Average ping over ${RECEIVED}/${SENT} packets is ${AVG PING}ms</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230203 15:50:10.058" level="INFO">Average ping over 1/1 packets is 7ms</msg>
-<status status="PASS" starttime="20230203 15:50:10.058" endtime="20230203 15:50:10.058"/>
+<msg timestamp="20230203 17:53:24.613" level="INFO">Average ping over 1/1 packets is 6ms</msg>
+<status status="PASS" starttime="20230203 17:53:24.613" endtime="20230203 17:53:24.613"/>
 </kw>
 <if>
 <branch type="IF" condition="${AVG PING} &gt; ${MAX AVG PING}">
 <kw name="Fail" library="BuiltIn">
 <arg>${AVG PING}ms is above ${MAX AVG PING}ms threshold.</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20230203 15:50:10.058" endtime="20230203 15:50:10.058"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.614" endtime="20230203 17:53:24.614"/>
 </kw>
-<status status="NOT RUN" starttime="20230203 15:50:10.058" endtime="20230203 15:50:10.058"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.613" endtime="20230203 17:53:24.614"/>
 </branch>
-<status status="PASS" starttime="20230203 15:50:10.058" endtime="20230203 15:50:10.058"/>
+<status status="PASS" starttime="20230203 17:53:24.613" endtime="20230203 17:53:24.614"/>
 </if>
-<status status="PASS" starttime="20230203 15:50:10.057" endtime="20230203 15:50:10.058"/>
+<status status="PASS" starttime="20230203 17:53:24.613" endtime="20230203 17:53:24.614"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.057" endtime="20230203 15:50:10.059"/>
+<status status="PASS" starttime="20230203 17:53:24.612" endtime="20230203 17:53:24.614"/>
 </test>
-<test id="s1-t4" name="Connection to given host is good" line="14">
+<test id="s1-t4" name="Connection to given host is good" line="16">
 <kw name="Loss and Ping Within Acceptable Thresholds">
 <arg>address=1.1.1.1</arg>
 <arg>num packets=1</arg>
@@ -112,8 +112,8 @@
 <var>${response}</var>
 <arg>${address}</arg>
 <arg>${num packets}</arg>
-<msg timestamp="20230203 15:50:10.080" level="INFO">${response} = {'sent': '1', 'rcvd': '1', 'lost': '0', 'loss': '0', 'min_ping': '8', 'max_ping': '8', 'avg_ping': '8'}</msg>
-<status status="PASS" starttime="20230203 15:50:10.061" endtime="20230203 15:50:10.080"/>
+<msg timestamp="20230203 17:53:24.635" level="INFO">${response} = {'sent': '1', 'rcvd': '1', 'lost': '0', 'loss': '0', 'min_ping': '7', 'max_ping': '7', 'avg_ping': '7'}</msg>
+<status status="PASS" starttime="20230203 17:53:24.616" endtime="20230203 17:53:24.635"/>
 </kw>
 <kw name="Process Response">
 <arg>${response}</arg>
@@ -121,89 +121,89 @@
 <arg>${LOSS}</arg>
 <arg>${response}[loss]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.081" level="INFO">${LOSS} = 0</msg>
-<status status="PASS" starttime="20230203 15:50:10.081" endtime="20230203 15:50:10.081"/>
+<msg timestamp="20230203 17:53:24.635" level="INFO">${LOSS} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.635" endtime="20230203 17:53:24.635"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${AVG PING}</arg>
 <arg>${response}[avg_ping]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.082" level="INFO">${AVG PING} = 8</msg>
-<status status="PASS" starttime="20230203 15:50:10.081" endtime="20230203 15:50:10.082"/>
+<msg timestamp="20230203 17:53:24.635" level="INFO">${AVG PING} = 7</msg>
+<status status="PASS" starttime="20230203 17:53:24.635" endtime="20230203 17:53:24.635"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${SENT}</arg>
 <arg>${response}[sent]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.082" level="INFO">${SENT} = 1</msg>
-<status status="PASS" starttime="20230203 15:50:10.082" endtime="20230203 15:50:10.082"/>
+<msg timestamp="20230203 17:53:24.636" level="INFO">${SENT} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.636" endtime="20230203 17:53:24.636"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${RECEIVED}</arg>
 <arg>${response}[rcvd]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.083" level="INFO">${RECEIVED} = 1</msg>
-<status status="PASS" starttime="20230203 15:50:10.082" endtime="20230203 15:50:10.083"/>
+<msg timestamp="20230203 17:53:24.636" level="INFO">${RECEIVED} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.636" endtime="20230203 17:53:24.636"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${LOST}</arg>
 <arg>${response}[lost]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.083" level="INFO">${LOST} = 0</msg>
-<status status="PASS" starttime="20230203 15:50:10.083" endtime="20230203 15:50:10.083"/>
+<msg timestamp="20230203 17:53:24.636" level="INFO">${LOST} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.636" endtime="20230203 17:53:24.636"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.080" endtime="20230203 15:50:10.083"/>
+<status status="PASS" starttime="20230203 17:53:24.635" endtime="20230203 17:53:24.636"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.061" endtime="20230203 15:50:10.083"/>
+<status status="PASS" starttime="20230203 17:53:24.616" endtime="20230203 17:53:24.636"/>
 </kw>
 <kw name="Compare Average Ping with Threshold">
 <kw name="Log" library="BuiltIn">
 <arg>Average ping over ${RECEIVED}/${SENT} packets is ${AVG PING}ms</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230203 15:50:10.084" level="INFO">Average ping over 1/1 packets is 8ms</msg>
-<status status="PASS" starttime="20230203 15:50:10.083" endtime="20230203 15:50:10.084"/>
+<msg timestamp="20230203 17:53:24.637" level="INFO">Average ping over 1/1 packets is 7ms</msg>
+<status status="PASS" starttime="20230203 17:53:24.637" endtime="20230203 17:53:24.637"/>
 </kw>
 <if>
 <branch type="IF" condition="${AVG PING} &gt; ${MAX AVG PING}">
 <kw name="Fail" library="BuiltIn">
 <arg>${AVG PING}ms is above ${MAX AVG PING}ms threshold.</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20230203 15:50:10.084" endtime="20230203 15:50:10.084"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.637" endtime="20230203 17:53:24.637"/>
 </kw>
-<status status="NOT RUN" starttime="20230203 15:50:10.084" endtime="20230203 15:50:10.084"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.637" endtime="20230203 17:53:24.637"/>
 </branch>
-<status status="PASS" starttime="20230203 15:50:10.084" endtime="20230203 15:50:10.084"/>
+<status status="PASS" starttime="20230203 17:53:24.637" endtime="20230203 17:53:24.637"/>
 </if>
-<status status="PASS" starttime="20230203 15:50:10.083" endtime="20230203 15:50:10.084"/>
+<status status="PASS" starttime="20230203 17:53:24.636" endtime="20230203 17:53:24.637"/>
 </kw>
 <kw name="Compare Loss with Threshold">
 <kw name="Log" library="BuiltIn">
 <arg>Sent \= ${SENT}, Received \= ${RECEIVED}, Lost \= ${LOST}, Packet Loss \= ${LOSS}%</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230203 15:50:10.084" level="INFO">Sent = 1, Received = 1, Lost = 0, Packet Loss = 0%</msg>
-<status status="PASS" starttime="20230203 15:50:10.084" endtime="20230203 15:50:10.084"/>
+<msg timestamp="20230203 17:53:24.638" level="INFO">Sent = 1, Received = 1, Lost = 0, Packet Loss = 0%</msg>
+<status status="PASS" starttime="20230203 17:53:24.637" endtime="20230203 17:53:24.638"/>
 </kw>
 <if>
 <branch type="IF" condition="${LOSS} &gt; ${MAX LOSS}">
 <kw name="Fail" library="BuiltIn">
 <arg>${LOSS}% loss is above ${MAX LOSS}% threshold.</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20230203 15:50:10.085" endtime="20230203 15:50:10.085"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.638" endtime="20230203 17:53:24.638"/>
 </kw>
-<status status="NOT RUN" starttime="20230203 15:50:10.084" endtime="20230203 15:50:10.085"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.638" endtime="20230203 17:53:24.638"/>
 </branch>
-<status status="PASS" starttime="20230203 15:50:10.084" endtime="20230203 15:50:10.085"/>
+<status status="PASS" starttime="20230203 17:53:24.638" endtime="20230203 17:53:24.638"/>
 </if>
-<status status="PASS" starttime="20230203 15:50:10.084" endtime="20230203 15:50:10.085"/>
+<status status="PASS" starttime="20230203 17:53:24.637" endtime="20230203 17:53:24.638"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.061" endtime="20230203 15:50:10.085"/>
+<status status="PASS" starttime="20230203 17:53:24.616" endtime="20230203 17:53:24.638"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.060" endtime="20230203 15:50:10.085"/>
+<status status="PASS" starttime="20230203 17:53:24.616" endtime="20230203 17:53:24.638"/>
 </test>
-<test id="s1-t5" name="Connection to multiple given hosts is good" line="17">
+<test id="s1-t5" name="Connection to multiple given hosts is good" line="19">
 <kw name="Loss and Ping Within Acceptable Thresholds">
-<arg>1.0.0.1</arg>
-<arg>1</arg>
+<arg>address=1.0.0.1</arg>
+<arg>num packets=1</arg>
 <kw name="Ping and Process Response">
 <arg>${address}</arg>
 <arg>${num packets}</arg>
@@ -211,8 +211,8 @@
 <var>${response}</var>
 <arg>${address}</arg>
 <arg>${num packets}</arg>
-<msg timestamp="20230203 15:50:10.105" level="INFO">${response} = {'sent': '1', 'rcvd': '1', 'lost': '0', 'loss': '0', 'min_ping': '6', 'max_ping': '6', 'avg_ping': '6'}</msg>
-<status status="PASS" starttime="20230203 15:50:10.087" endtime="20230203 15:50:10.105"/>
+<msg timestamp="20230203 17:53:24.658" level="INFO">${response} = {'sent': '1', 'rcvd': '1', 'lost': '0', 'loss': '0', 'min_ping': '6', 'max_ping': '6', 'avg_ping': '6'}</msg>
+<status status="PASS" starttime="20230203 17:53:24.641" endtime="20230203 17:53:24.658"/>
 </kw>
 <kw name="Process Response">
 <arg>${response}</arg>
@@ -220,86 +220,86 @@
 <arg>${LOSS}</arg>
 <arg>${response}[loss]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.106" level="INFO">${LOSS} = 0</msg>
-<status status="PASS" starttime="20230203 15:50:10.105" endtime="20230203 15:50:10.106"/>
+<msg timestamp="20230203 17:53:24.658" level="INFO">${LOSS} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.658" endtime="20230203 17:53:24.658"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${AVG PING}</arg>
 <arg>${response}[avg_ping]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.106" level="INFO">${AVG PING} = 6</msg>
-<status status="PASS" starttime="20230203 15:50:10.106" endtime="20230203 15:50:10.106"/>
+<msg timestamp="20230203 17:53:24.659" level="INFO">${AVG PING} = 6</msg>
+<status status="PASS" starttime="20230203 17:53:24.658" endtime="20230203 17:53:24.659"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${SENT}</arg>
 <arg>${response}[sent]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.106" level="INFO">${SENT} = 1</msg>
-<status status="PASS" starttime="20230203 15:50:10.106" endtime="20230203 15:50:10.106"/>
+<msg timestamp="20230203 17:53:24.659" level="INFO">${SENT} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.659" endtime="20230203 17:53:24.659"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${RECEIVED}</arg>
 <arg>${response}[rcvd]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.106" level="INFO">${RECEIVED} = 1</msg>
-<status status="PASS" starttime="20230203 15:50:10.106" endtime="20230203 15:50:10.107"/>
+<msg timestamp="20230203 17:53:24.659" level="INFO">${RECEIVED} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.659" endtime="20230203 17:53:24.659"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${LOST}</arg>
 <arg>${response}[lost]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.107" level="INFO">${LOST} = 0</msg>
-<status status="PASS" starttime="20230203 15:50:10.107" endtime="20230203 15:50:10.107"/>
+<msg timestamp="20230203 17:53:24.660" level="INFO">${LOST} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.659" endtime="20230203 17:53:24.660"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.105" endtime="20230203 15:50:10.107"/>
+<status status="PASS" starttime="20230203 17:53:24.658" endtime="20230203 17:53:24.660"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.087" endtime="20230203 15:50:10.107"/>
+<status status="PASS" starttime="20230203 17:53:24.641" endtime="20230203 17:53:24.660"/>
 </kw>
 <kw name="Compare Average Ping with Threshold">
 <kw name="Log" library="BuiltIn">
 <arg>Average ping over ${RECEIVED}/${SENT} packets is ${AVG PING}ms</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230203 15:50:10.107" level="INFO">Average ping over 1/1 packets is 6ms</msg>
-<status status="PASS" starttime="20230203 15:50:10.107" endtime="20230203 15:50:10.107"/>
+<msg timestamp="20230203 17:53:24.660" level="INFO">Average ping over 1/1 packets is 6ms</msg>
+<status status="PASS" starttime="20230203 17:53:24.660" endtime="20230203 17:53:24.660"/>
 </kw>
 <if>
 <branch type="IF" condition="${AVG PING} &gt; ${MAX AVG PING}">
 <kw name="Fail" library="BuiltIn">
 <arg>${AVG PING}ms is above ${MAX AVG PING}ms threshold.</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20230203 15:50:10.107" endtime="20230203 15:50:10.107"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.660" endtime="20230203 17:53:24.660"/>
 </kw>
-<status status="NOT RUN" starttime="20230203 15:50:10.107" endtime="20230203 15:50:10.108"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.660" endtime="20230203 17:53:24.660"/>
 </branch>
-<status status="PASS" starttime="20230203 15:50:10.107" endtime="20230203 15:50:10.108"/>
+<status status="PASS" starttime="20230203 17:53:24.660" endtime="20230203 17:53:24.660"/>
 </if>
-<status status="PASS" starttime="20230203 15:50:10.107" endtime="20230203 15:50:10.108"/>
+<status status="PASS" starttime="20230203 17:53:24.660" endtime="20230203 17:53:24.660"/>
 </kw>
 <kw name="Compare Loss with Threshold">
 <kw name="Log" library="BuiltIn">
 <arg>Sent \= ${SENT}, Received \= ${RECEIVED}, Lost \= ${LOST}, Packet Loss \= ${LOSS}%</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230203 15:50:10.108" level="INFO">Sent = 1, Received = 1, Lost = 0, Packet Loss = 0%</msg>
-<status status="PASS" starttime="20230203 15:50:10.108" endtime="20230203 15:50:10.108"/>
+<msg timestamp="20230203 17:53:24.661" level="INFO">Sent = 1, Received = 1, Lost = 0, Packet Loss = 0%</msg>
+<status status="PASS" starttime="20230203 17:53:24.661" endtime="20230203 17:53:24.661"/>
 </kw>
 <if>
 <branch type="IF" condition="${LOSS} &gt; ${MAX LOSS}">
 <kw name="Fail" library="BuiltIn">
 <arg>${LOSS}% loss is above ${MAX LOSS}% threshold.</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20230203 15:50:10.108" endtime="20230203 15:50:10.108"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.661" endtime="20230203 17:53:24.661"/>
 </kw>
-<status status="NOT RUN" starttime="20230203 15:50:10.108" endtime="20230203 15:50:10.108"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.661" endtime="20230203 17:53:24.661"/>
 </branch>
-<status status="PASS" starttime="20230203 15:50:10.108" endtime="20230203 15:50:10.108"/>
+<status status="PASS" starttime="20230203 17:53:24.661" endtime="20230203 17:53:24.661"/>
 </if>
-<status status="PASS" starttime="20230203 15:50:10.108" endtime="20230203 15:50:10.108"/>
+<status status="PASS" starttime="20230203 17:53:24.660" endtime="20230203 17:53:24.661"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.087" endtime="20230203 15:50:10.108"/>
+<status status="PASS" starttime="20230203 17:53:24.640" endtime="20230203 17:53:24.661"/>
 </kw>
 <kw name="Loss and Ping Within Acceptable Thresholds">
-<arg>8.8.4.4</arg>
-<arg>1</arg>
+<arg>address=8.8.4.4</arg>
+<arg>num packets=1</arg>
 <kw name="Ping and Process Response">
 <arg>${address}</arg>
 <arg>${num packets}</arg>
@@ -307,8 +307,8 @@
 <var>${response}</var>
 <arg>${address}</arg>
 <arg>${num packets}</arg>
-<msg timestamp="20230203 15:50:10.125" level="INFO">${response} = {'sent': '1', 'rcvd': '1', 'lost': '0', 'loss': '0', 'min_ping': '6', 'max_ping': '6', 'avg_ping': '6'}</msg>
-<status status="PASS" starttime="20230203 15:50:10.110" endtime="20230203 15:50:10.125"/>
+<msg timestamp="20230203 17:53:24.681" level="INFO">${response} = {'sent': '1', 'rcvd': '1', 'lost': '0', 'loss': '0', 'min_ping': '8', 'max_ping': '8', 'avg_ping': '8'}</msg>
+<status status="PASS" starttime="20230203 17:53:24.662" endtime="20230203 17:53:24.681"/>
 </kw>
 <kw name="Process Response">
 <arg>${response}</arg>
@@ -316,86 +316,86 @@
 <arg>${LOSS}</arg>
 <arg>${response}[loss]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.126" level="INFO">${LOSS} = 0</msg>
-<status status="PASS" starttime="20230203 15:50:10.126" endtime="20230203 15:50:10.126"/>
+<msg timestamp="20230203 17:53:24.682" level="INFO">${LOSS} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.682" endtime="20230203 17:53:24.683"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${AVG PING}</arg>
 <arg>${response}[avg_ping]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.126" level="INFO">${AVG PING} = 6</msg>
-<status status="PASS" starttime="20230203 15:50:10.126" endtime="20230203 15:50:10.126"/>
+<msg timestamp="20230203 17:53:24.683" level="INFO">${AVG PING} = 8</msg>
+<status status="PASS" starttime="20230203 17:53:24.683" endtime="20230203 17:53:24.683"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${SENT}</arg>
 <arg>${response}[sent]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.126" level="INFO">${SENT} = 1</msg>
-<status status="PASS" starttime="20230203 15:50:10.126" endtime="20230203 15:50:10.126"/>
+<msg timestamp="20230203 17:53:24.683" level="INFO">${SENT} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.683" endtime="20230203 17:53:24.683"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${RECEIVED}</arg>
 <arg>${response}[rcvd]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.127" level="INFO">${RECEIVED} = 1</msg>
-<status status="PASS" starttime="20230203 15:50:10.127" endtime="20230203 15:50:10.127"/>
+<msg timestamp="20230203 17:53:24.684" level="INFO">${RECEIVED} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.683" endtime="20230203 17:53:24.684"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${LOST}</arg>
 <arg>${response}[lost]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.127" level="INFO">${LOST} = 0</msg>
-<status status="PASS" starttime="20230203 15:50:10.127" endtime="20230203 15:50:10.127"/>
+<msg timestamp="20230203 17:53:24.684" level="INFO">${LOST} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.684" endtime="20230203 17:53:24.684"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.125" endtime="20230203 15:50:10.127"/>
+<status status="PASS" starttime="20230203 17:53:24.682" endtime="20230203 17:53:24.684"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.109" endtime="20230203 15:50:10.127"/>
+<status status="PASS" starttime="20230203 17:53:24.662" endtime="20230203 17:53:24.684"/>
 </kw>
 <kw name="Compare Average Ping with Threshold">
 <kw name="Log" library="BuiltIn">
 <arg>Average ping over ${RECEIVED}/${SENT} packets is ${AVG PING}ms</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230203 15:50:10.127" level="INFO">Average ping over 1/1 packets is 6ms</msg>
-<status status="PASS" starttime="20230203 15:50:10.127" endtime="20230203 15:50:10.127"/>
+<msg timestamp="20230203 17:53:24.684" level="INFO">Average ping over 1/1 packets is 8ms</msg>
+<status status="PASS" starttime="20230203 17:53:24.684" endtime="20230203 17:53:24.684"/>
 </kw>
 <if>
 <branch type="IF" condition="${AVG PING} &gt; ${MAX AVG PING}">
 <kw name="Fail" library="BuiltIn">
 <arg>${AVG PING}ms is above ${MAX AVG PING}ms threshold.</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20230203 15:50:10.128" endtime="20230203 15:50:10.128"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.685" endtime="20230203 17:53:24.685"/>
 </kw>
-<status status="NOT RUN" starttime="20230203 15:50:10.128" endtime="20230203 15:50:10.128"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.684" endtime="20230203 17:53:24.685"/>
 </branch>
-<status status="PASS" starttime="20230203 15:50:10.127" endtime="20230203 15:50:10.128"/>
+<status status="PASS" starttime="20230203 17:53:24.684" endtime="20230203 17:53:24.685"/>
 </if>
-<status status="PASS" starttime="20230203 15:50:10.127" endtime="20230203 15:50:10.128"/>
+<status status="PASS" starttime="20230203 17:53:24.684" endtime="20230203 17:53:24.685"/>
 </kw>
 <kw name="Compare Loss with Threshold">
 <kw name="Log" library="BuiltIn">
 <arg>Sent \= ${SENT}, Received \= ${RECEIVED}, Lost \= ${LOST}, Packet Loss \= ${LOSS}%</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230203 15:50:10.128" level="INFO">Sent = 1, Received = 1, Lost = 0, Packet Loss = 0%</msg>
-<status status="PASS" starttime="20230203 15:50:10.128" endtime="20230203 15:50:10.128"/>
+<msg timestamp="20230203 17:53:24.685" level="INFO">Sent = 1, Received = 1, Lost = 0, Packet Loss = 0%</msg>
+<status status="PASS" starttime="20230203 17:53:24.685" endtime="20230203 17:53:24.685"/>
 </kw>
 <if>
 <branch type="IF" condition="${LOSS} &gt; ${MAX LOSS}">
 <kw name="Fail" library="BuiltIn">
 <arg>${LOSS}% loss is above ${MAX LOSS}% threshold.</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20230203 15:50:10.128" endtime="20230203 15:50:10.128"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.685" endtime="20230203 17:53:24.685"/>
 </kw>
-<status status="NOT RUN" starttime="20230203 15:50:10.128" endtime="20230203 15:50:10.128"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.685" endtime="20230203 17:53:24.685"/>
 </branch>
-<status status="PASS" starttime="20230203 15:50:10.128" endtime="20230203 15:50:10.128"/>
+<status status="PASS" starttime="20230203 17:53:24.685" endtime="20230203 17:53:24.685"/>
 </if>
-<status status="PASS" starttime="20230203 15:50:10.128" endtime="20230203 15:50:10.128"/>
+<status status="PASS" starttime="20230203 17:53:24.685" endtime="20230203 17:53:24.686"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.109" endtime="20230203 15:50:10.129"/>
+<status status="PASS" starttime="20230203 17:53:24.662" endtime="20230203 17:53:24.686"/>
 </kw>
 <kw name="Loss and Ping Within Acceptable Thresholds">
-<arg>1.1.1.2</arg>
-<arg>1</arg>
+<arg>address=1.1.1.2</arg>
+<arg>num packets=1</arg>
 <kw name="Ping and Process Response">
 <arg>${address}</arg>
 <arg>${num packets}</arg>
@@ -403,8 +403,8 @@
 <var>${response}</var>
 <arg>${address}</arg>
 <arg>${num packets}</arg>
-<msg timestamp="20230203 15:50:10.146" level="INFO">${response} = {'sent': '1', 'rcvd': '1', 'lost': '0', 'loss': '0', 'min_ping': '7', 'max_ping': '7', 'avg_ping': '7'}</msg>
-<status status="PASS" starttime="20230203 15:50:10.129" endtime="20230203 15:50:10.146"/>
+<msg timestamp="20230203 17:53:24.704" level="INFO">${response} = {'sent': '1', 'rcvd': '1', 'lost': '0', 'loss': '0', 'min_ping': '6', 'max_ping': '6', 'avg_ping': '6'}</msg>
+<status status="PASS" starttime="20230203 17:53:24.687" endtime="20230203 17:53:24.704"/>
 </kw>
 <kw name="Process Response">
 <arg>${response}</arg>
@@ -412,86 +412,86 @@
 <arg>${LOSS}</arg>
 <arg>${response}[loss]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.147" level="INFO">${LOSS} = 0</msg>
-<status status="PASS" starttime="20230203 15:50:10.147" endtime="20230203 15:50:10.147"/>
+<msg timestamp="20230203 17:53:24.704" level="INFO">${LOSS} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.704" endtime="20230203 17:53:24.704"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${AVG PING}</arg>
 <arg>${response}[avg_ping]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.147" level="INFO">${AVG PING} = 7</msg>
-<status status="PASS" starttime="20230203 15:50:10.147" endtime="20230203 15:50:10.147"/>
+<msg timestamp="20230203 17:53:24.704" level="INFO">${AVG PING} = 6</msg>
+<status status="PASS" starttime="20230203 17:53:24.704" endtime="20230203 17:53:24.704"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${SENT}</arg>
 <arg>${response}[sent]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.147" level="INFO">${SENT} = 1</msg>
-<status status="PASS" starttime="20230203 15:50:10.147" endtime="20230203 15:50:10.147"/>
+<msg timestamp="20230203 17:53:24.705" level="INFO">${SENT} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.705" endtime="20230203 17:53:24.705"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${RECEIVED}</arg>
 <arg>${response}[rcvd]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.148" level="INFO">${RECEIVED} = 1</msg>
-<status status="PASS" starttime="20230203 15:50:10.147" endtime="20230203 15:50:10.148"/>
+<msg timestamp="20230203 17:53:24.705" level="INFO">${RECEIVED} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.705" endtime="20230203 17:53:24.705"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${LOST}</arg>
 <arg>${response}[lost]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.148" level="INFO">${LOST} = 0</msg>
-<status status="PASS" starttime="20230203 15:50:10.148" endtime="20230203 15:50:10.148"/>
+<msg timestamp="20230203 17:53:24.705" level="INFO">${LOST} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.705" endtime="20230203 17:53:24.705"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.146" endtime="20230203 15:50:10.148"/>
+<status status="PASS" starttime="20230203 17:53:24.704" endtime="20230203 17:53:24.705"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.129" endtime="20230203 15:50:10.148"/>
+<status status="PASS" starttime="20230203 17:53:24.686" endtime="20230203 17:53:24.705"/>
 </kw>
 <kw name="Compare Average Ping with Threshold">
 <kw name="Log" library="BuiltIn">
 <arg>Average ping over ${RECEIVED}/${SENT} packets is ${AVG PING}ms</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230203 15:50:10.148" level="INFO">Average ping over 1/1 packets is 7ms</msg>
-<status status="PASS" starttime="20230203 15:50:10.148" endtime="20230203 15:50:10.148"/>
+<msg timestamp="20230203 17:53:24.706" level="INFO">Average ping over 1/1 packets is 6ms</msg>
+<status status="PASS" starttime="20230203 17:53:24.706" endtime="20230203 17:53:24.706"/>
 </kw>
 <if>
 <branch type="IF" condition="${AVG PING} &gt; ${MAX AVG PING}">
 <kw name="Fail" library="BuiltIn">
 <arg>${AVG PING}ms is above ${MAX AVG PING}ms threshold.</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20230203 15:50:10.149" endtime="20230203 15:50:10.149"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.706" endtime="20230203 17:53:24.706"/>
 </kw>
-<status status="NOT RUN" starttime="20230203 15:50:10.148" endtime="20230203 15:50:10.149"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.706" endtime="20230203 17:53:24.706"/>
 </branch>
-<status status="PASS" starttime="20230203 15:50:10.148" endtime="20230203 15:50:10.149"/>
+<status status="PASS" starttime="20230203 17:53:24.706" endtime="20230203 17:53:24.707"/>
 </if>
-<status status="PASS" starttime="20230203 15:50:10.148" endtime="20230203 15:50:10.149"/>
+<status status="PASS" starttime="20230203 17:53:24.705" endtime="20230203 17:53:24.707"/>
 </kw>
 <kw name="Compare Loss with Threshold">
 <kw name="Log" library="BuiltIn">
 <arg>Sent \= ${SENT}, Received \= ${RECEIVED}, Lost \= ${LOST}, Packet Loss \= ${LOSS}%</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230203 15:50:10.149" level="INFO">Sent = 1, Received = 1, Lost = 0, Packet Loss = 0%</msg>
-<status status="PASS" starttime="20230203 15:50:10.149" endtime="20230203 15:50:10.149"/>
+<msg timestamp="20230203 17:53:24.707" level="INFO">Sent = 1, Received = 1, Lost = 0, Packet Loss = 0%</msg>
+<status status="PASS" starttime="20230203 17:53:24.707" endtime="20230203 17:53:24.707"/>
 </kw>
 <if>
 <branch type="IF" condition="${LOSS} &gt; ${MAX LOSS}">
 <kw name="Fail" library="BuiltIn">
 <arg>${LOSS}% loss is above ${MAX LOSS}% threshold.</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20230203 15:50:10.150" endtime="20230203 15:50:10.150"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.708" endtime="20230203 17:53:24.708"/>
 </kw>
-<status status="NOT RUN" starttime="20230203 15:50:10.149" endtime="20230203 15:50:10.150"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.708" endtime="20230203 17:53:24.708"/>
 </branch>
-<status status="PASS" starttime="20230203 15:50:10.149" endtime="20230203 15:50:10.150"/>
+<status status="PASS" starttime="20230203 17:53:24.708" endtime="20230203 17:53:24.708"/>
 </if>
-<status status="PASS" starttime="20230203 15:50:10.149" endtime="20230203 15:50:10.150"/>
+<status status="PASS" starttime="20230203 17:53:24.707" endtime="20230203 17:53:24.708"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.129" endtime="20230203 15:50:10.150"/>
+<status status="PASS" starttime="20230203 17:53:24.686" endtime="20230203 17:53:24.708"/>
 </kw>
 <kw name="Loss and Ping Within Acceptable Thresholds">
-<arg>1.0.0.2</arg>
-<arg>1</arg>
+<arg>address=1.0.0.2</arg>
+<arg>num packets=1</arg>
 <kw name="Ping and Process Response">
 <arg>${address}</arg>
 <arg>${num packets}</arg>
@@ -499,8 +499,8 @@
 <var>${response}</var>
 <arg>${address}</arg>
 <arg>${num packets}</arg>
-<msg timestamp="20230203 15:50:10.169" level="INFO">${response} = {'sent': '1', 'rcvd': '1', 'lost': '0', 'loss': '0', 'min_ping': '8', 'max_ping': '8', 'avg_ping': '8'}</msg>
-<status status="PASS" starttime="20230203 15:50:10.151" endtime="20230203 15:50:10.169"/>
+<msg timestamp="20230203 17:53:24.729" level="INFO">${response} = {'sent': '1', 'rcvd': '1', 'lost': '0', 'loss': '0', 'min_ping': '10', 'max_ping': '10', 'avg_ping': '10'}</msg>
+<status status="PASS" starttime="20230203 17:53:24.709" endtime="20230203 17:53:24.729"/>
 </kw>
 <kw name="Process Response">
 <arg>${response}</arg>
@@ -508,95 +508,870 @@
 <arg>${LOSS}</arg>
 <arg>${response}[loss]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.170" level="INFO">${LOSS} = 0</msg>
-<status status="PASS" starttime="20230203 15:50:10.169" endtime="20230203 15:50:10.170"/>
+<msg timestamp="20230203 17:53:24.730" level="INFO">${LOSS} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.730" endtime="20230203 17:53:24.730"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${AVG PING}</arg>
 <arg>${response}[avg_ping]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.170" level="INFO">${AVG PING} = 8</msg>
-<status status="PASS" starttime="20230203 15:50:10.170" endtime="20230203 15:50:10.170"/>
+<msg timestamp="20230203 17:53:24.731" level="INFO">${AVG PING} = 10</msg>
+<status status="PASS" starttime="20230203 17:53:24.730" endtime="20230203 17:53:24.731"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${SENT}</arg>
 <arg>${response}[sent]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.170" level="INFO">${SENT} = 1</msg>
-<status status="PASS" starttime="20230203 15:50:10.170" endtime="20230203 15:50:10.170"/>
+<msg timestamp="20230203 17:53:24.731" level="INFO">${SENT} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.731" endtime="20230203 17:53:24.731"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${RECEIVED}</arg>
 <arg>${response}[rcvd]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.171" level="INFO">${RECEIVED} = 1</msg>
-<status status="PASS" starttime="20230203 15:50:10.170" endtime="20230203 15:50:10.171"/>
+<msg timestamp="20230203 17:53:24.732" level="INFO">${RECEIVED} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.731" endtime="20230203 17:53:24.732"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${LOST}</arg>
 <arg>${response}[lost]</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230203 15:50:10.171" level="INFO">${LOST} = 0</msg>
-<status status="PASS" starttime="20230203 15:50:10.171" endtime="20230203 15:50:10.171"/>
+<msg timestamp="20230203 17:53:24.732" level="INFO">${LOST} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.732" endtime="20230203 17:53:24.732"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.169" endtime="20230203 15:50:10.171"/>
+<status status="PASS" starttime="20230203 17:53:24.729" endtime="20230203 17:53:24.732"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.150" endtime="20230203 15:50:10.171"/>
+<status status="PASS" starttime="20230203 17:53:24.709" endtime="20230203 17:53:24.732"/>
 </kw>
 <kw name="Compare Average Ping with Threshold">
 <kw name="Log" library="BuiltIn">
 <arg>Average ping over ${RECEIVED}/${SENT} packets is ${AVG PING}ms</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230203 15:50:10.171" level="INFO">Average ping over 1/1 packets is 8ms</msg>
-<status status="PASS" starttime="20230203 15:50:10.171" endtime="20230203 15:50:10.171"/>
+<msg timestamp="20230203 17:53:24.733" level="INFO">Average ping over 1/1 packets is 10ms</msg>
+<status status="PASS" starttime="20230203 17:53:24.733" endtime="20230203 17:53:24.733"/>
 </kw>
 <if>
 <branch type="IF" condition="${AVG PING} &gt; ${MAX AVG PING}">
 <kw name="Fail" library="BuiltIn">
 <arg>${AVG PING}ms is above ${MAX AVG PING}ms threshold.</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20230203 15:50:10.172" endtime="20230203 15:50:10.172"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.733" endtime="20230203 17:53:24.733"/>
 </kw>
-<status status="NOT RUN" starttime="20230203 15:50:10.172" endtime="20230203 15:50:10.172"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.733" endtime="20230203 17:53:24.733"/>
 </branch>
-<status status="PASS" starttime="20230203 15:50:10.171" endtime="20230203 15:50:10.172"/>
+<status status="PASS" starttime="20230203 17:53:24.733" endtime="20230203 17:53:24.733"/>
 </if>
-<status status="PASS" starttime="20230203 15:50:10.171" endtime="20230203 15:50:10.172"/>
+<status status="PASS" starttime="20230203 17:53:24.732" endtime="20230203 17:53:24.733"/>
 </kw>
 <kw name="Compare Loss with Threshold">
 <kw name="Log" library="BuiltIn">
 <arg>Sent \= ${SENT}, Received \= ${RECEIVED}, Lost \= ${LOST}, Packet Loss \= ${LOSS}%</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230203 15:50:10.172" level="INFO">Sent = 1, Received = 1, Lost = 0, Packet Loss = 0%</msg>
-<status status="PASS" starttime="20230203 15:50:10.172" endtime="20230203 15:50:10.172"/>
+<msg timestamp="20230203 17:53:24.734" level="INFO">Sent = 1, Received = 1, Lost = 0, Packet Loss = 0%</msg>
+<status status="PASS" starttime="20230203 17:53:24.734" endtime="20230203 17:53:24.734"/>
 </kw>
 <if>
 <branch type="IF" condition="${LOSS} &gt; ${MAX LOSS}">
 <kw name="Fail" library="BuiltIn">
 <arg>${LOSS}% loss is above ${MAX LOSS}% threshold.</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20230203 15:50:10.172" endtime="20230203 15:50:10.173"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.734" endtime="20230203 17:53:24.734"/>
 </kw>
-<status status="NOT RUN" starttime="20230203 15:50:10.172" endtime="20230203 15:50:10.173"/>
+<status status="NOT RUN" starttime="20230203 17:53:24.734" endtime="20230203 17:53:24.734"/>
 </branch>
-<status status="PASS" starttime="20230203 15:50:10.172" endtime="20230203 15:50:10.173"/>
+<status status="PASS" starttime="20230203 17:53:24.734" endtime="20230203 17:53:24.734"/>
 </if>
-<status status="PASS" starttime="20230203 15:50:10.172" endtime="20230203 15:50:10.173"/>
+<status status="PASS" starttime="20230203 17:53:24.733" endtime="20230203 17:53:24.734"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.150" endtime="20230203 15:50:10.173"/>
+<status status="PASS" starttime="20230203 17:53:24.708" endtime="20230203 17:53:24.735"/>
 </kw>
-<status status="PASS" starttime="20230203 15:50:10.086" endtime="20230203 15:50:10.173"/>
+<status status="PASS" starttime="20230203 17:53:24.640" endtime="20230203 17:53:24.735"/>
 </test>
-<status status="PASS" starttime="20230203 15:50:10.003" endtime="20230203 15:50:10.174"/>
+<test id="s1-t6" name="Connection to multiple given hosts is good (text file)" line="26">
+<kw name="Get File" library="OperatingSystem">
+<var>${contents}</var>
+<arg>hosts.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20230203 17:53:24.737" level="INFO" html="true">Getting file '&lt;a href="file://D:\Livewire\Repos\robot-pingtest\hosts.txt"&gt;D:\Livewire\Repos\robot-pingtest\hosts.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20230203 17:53:24.737" level="INFO">${contents} = 1.1.1.1
+1.0.0.1
+8.8.8.8
+8.8.4.4</msg>
+<status status="PASS" starttime="20230203 17:53:24.737" endtime="20230203 17:53:24.737"/>
+</kw>
+<kw name="Split To Lines" library="String">
+<var>@{addresses}</var>
+<arg>${contents}</arg>
+<doc>Splits the given string to lines.</doc>
+<msg timestamp="20230203 17:53:24.738" level="INFO">4 lines returned</msg>
+<msg timestamp="20230203 17:53:24.738" level="INFO">@{addresses} = [ 1.1.1.1 | 1.0.0.1 | 8.8.8.8 | 8.8.4.4 ]</msg>
+<status status="PASS" starttime="20230203 17:53:24.738" endtime="20230203 17:53:24.738"/>
+</kw>
+<for flavor="IN">
+<var>${address}</var>
+<value>@{addresses}</value>
+<iter>
+<var name="${address}">1.1.1.1</var>
+<kw name="Log" library="BuiltIn">
+<arg>${address}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230203 17:53:24.739" level="INFO">1.1.1.1</msg>
+<status status="PASS" starttime="20230203 17:53:24.739" endtime="20230203 17:53:24.739"/>
+</kw>
+<kw name="Loss and Ping Within Acceptable Thresholds">
+<arg>address=${address}</arg>
+<arg>num packets=1</arg>
+<kw name="Ping and Process Response">
+<arg>${address}</arg>
+<arg>${num packets}</arg>
+<kw name="Ping Address" library="PingLibrary">
+<var>${response}</var>
+<arg>${address}</arg>
+<arg>${num packets}</arg>
+<msg timestamp="20230203 17:53:24.778" level="INFO">${response} = {'sent': '1', 'rcvd': '1', 'lost': '0', 'loss': '0', 'min_ping': '27', 'max_ping': '27', 'avg_ping': '27'}</msg>
+<status status="PASS" starttime="20230203 17:53:24.739" endtime="20230203 17:53:24.778"/>
+</kw>
+<kw name="Process Response">
+<arg>${response}</arg>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${LOSS}</arg>
+<arg>${response}[loss]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.779" level="INFO">${LOSS} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.779" endtime="20230203 17:53:24.779"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${AVG PING}</arg>
+<arg>${response}[avg_ping]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.779" level="INFO">${AVG PING} = 27</msg>
+<status status="PASS" starttime="20230203 17:53:24.779" endtime="20230203 17:53:24.779"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${SENT}</arg>
+<arg>${response}[sent]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.780" level="INFO">${SENT} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.779" endtime="20230203 17:53:24.780"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${RECEIVED}</arg>
+<arg>${response}[rcvd]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.780" level="INFO">${RECEIVED} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.780" endtime="20230203 17:53:24.780"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${LOST}</arg>
+<arg>${response}[lost]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.780" level="INFO">${LOST} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.780" endtime="20230203 17:53:24.780"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.778" endtime="20230203 17:53:24.780"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.739" endtime="20230203 17:53:24.780"/>
+</kw>
+<kw name="Compare Average Ping with Threshold">
+<kw name="Log" library="BuiltIn">
+<arg>Average ping over ${RECEIVED}/${SENT} packets is ${AVG PING}ms</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230203 17:53:24.781" level="INFO">Average ping over 1/1 packets is 27ms</msg>
+<status status="PASS" starttime="20230203 17:53:24.781" endtime="20230203 17:53:24.781"/>
+</kw>
+<if>
+<branch type="IF" condition="${AVG PING} &gt; ${MAX AVG PING}">
+<kw name="Fail" library="BuiltIn">
+<arg>${AVG PING}ms is above ${MAX AVG PING}ms threshold.</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20230203 17:53:24.781" endtime="20230203 17:53:24.781"/>
+</kw>
+<status status="NOT RUN" starttime="20230203 17:53:24.781" endtime="20230203 17:53:24.781"/>
+</branch>
+<status status="PASS" starttime="20230203 17:53:24.781" endtime="20230203 17:53:24.781"/>
+</if>
+<status status="PASS" starttime="20230203 17:53:24.780" endtime="20230203 17:53:24.781"/>
+</kw>
+<kw name="Compare Loss with Threshold">
+<kw name="Log" library="BuiltIn">
+<arg>Sent \= ${SENT}, Received \= ${RECEIVED}, Lost \= ${LOST}, Packet Loss \= ${LOSS}%</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230203 17:53:24.781" level="INFO">Sent = 1, Received = 1, Lost = 0, Packet Loss = 0%</msg>
+<status status="PASS" starttime="20230203 17:53:24.781" endtime="20230203 17:53:24.781"/>
+</kw>
+<if>
+<branch type="IF" condition="${LOSS} &gt; ${MAX LOSS}">
+<kw name="Fail" library="BuiltIn">
+<arg>${LOSS}% loss is above ${MAX LOSS}% threshold.</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20230203 17:53:24.782" endtime="20230203 17:53:24.782"/>
+</kw>
+<status status="NOT RUN" starttime="20230203 17:53:24.781" endtime="20230203 17:53:24.782"/>
+</branch>
+<status status="PASS" starttime="20230203 17:53:24.781" endtime="20230203 17:53:24.782"/>
+</if>
+<status status="PASS" starttime="20230203 17:53:24.781" endtime="20230203 17:53:24.782"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.739" endtime="20230203 17:53:24.782"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.739" endtime="20230203 17:53:24.782"/>
+</iter>
+<iter>
+<var name="${address}">1.0.0.1</var>
+<kw name="Log" library="BuiltIn">
+<arg>${address}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230203 17:53:24.782" level="INFO">1.0.0.1</msg>
+<status status="PASS" starttime="20230203 17:53:24.782" endtime="20230203 17:53:24.782"/>
+</kw>
+<kw name="Loss and Ping Within Acceptable Thresholds">
+<arg>address=${address}</arg>
+<arg>num packets=1</arg>
+<kw name="Ping and Process Response">
+<arg>${address}</arg>
+<arg>${num packets}</arg>
+<kw name="Ping Address" library="PingLibrary">
+<var>${response}</var>
+<arg>${address}</arg>
+<arg>${num packets}</arg>
+<msg timestamp="20230203 17:53:24.807" level="INFO">${response} = {'sent': '1', 'rcvd': '1', 'lost': '0', 'loss': '0', 'min_ping': '13', 'max_ping': '13', 'avg_ping': '13'}</msg>
+<status status="PASS" starttime="20230203 17:53:24.782" endtime="20230203 17:53:24.807"/>
+</kw>
+<kw name="Process Response">
+<arg>${response}</arg>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${LOSS}</arg>
+<arg>${response}[loss]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.807" level="INFO">${LOSS} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.807" endtime="20230203 17:53:24.807"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${AVG PING}</arg>
+<arg>${response}[avg_ping]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.808" level="INFO">${AVG PING} = 13</msg>
+<status status="PASS" starttime="20230203 17:53:24.807" endtime="20230203 17:53:24.808"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${SENT}</arg>
+<arg>${response}[sent]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.808" level="INFO">${SENT} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.808" endtime="20230203 17:53:24.808"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${RECEIVED}</arg>
+<arg>${response}[rcvd]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.808" level="INFO">${RECEIVED} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.808" endtime="20230203 17:53:24.808"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${LOST}</arg>
+<arg>${response}[lost]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.808" level="INFO">${LOST} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.808" endtime="20230203 17:53:24.808"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.807" endtime="20230203 17:53:24.808"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.782" endtime="20230203 17:53:24.809"/>
+</kw>
+<kw name="Compare Average Ping with Threshold">
+<kw name="Log" library="BuiltIn">
+<arg>Average ping over ${RECEIVED}/${SENT} packets is ${AVG PING}ms</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230203 17:53:24.809" level="INFO">Average ping over 1/1 packets is 13ms</msg>
+<status status="PASS" starttime="20230203 17:53:24.809" endtime="20230203 17:53:24.809"/>
+</kw>
+<if>
+<branch type="IF" condition="${AVG PING} &gt; ${MAX AVG PING}">
+<kw name="Fail" library="BuiltIn">
+<arg>${AVG PING}ms is above ${MAX AVG PING}ms threshold.</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20230203 17:53:24.809" endtime="20230203 17:53:24.809"/>
+</kw>
+<status status="NOT RUN" starttime="20230203 17:53:24.809" endtime="20230203 17:53:24.809"/>
+</branch>
+<status status="PASS" starttime="20230203 17:53:24.809" endtime="20230203 17:53:24.809"/>
+</if>
+<status status="PASS" starttime="20230203 17:53:24.809" endtime="20230203 17:53:24.809"/>
+</kw>
+<kw name="Compare Loss with Threshold">
+<kw name="Log" library="BuiltIn">
+<arg>Sent \= ${SENT}, Received \= ${RECEIVED}, Lost \= ${LOST}, Packet Loss \= ${LOSS}%</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230203 17:53:24.810" level="INFO">Sent = 1, Received = 1, Lost = 0, Packet Loss = 0%</msg>
+<status status="PASS" starttime="20230203 17:53:24.809" endtime="20230203 17:53:24.810"/>
+</kw>
+<if>
+<branch type="IF" condition="${LOSS} &gt; ${MAX LOSS}">
+<kw name="Fail" library="BuiltIn">
+<arg>${LOSS}% loss is above ${MAX LOSS}% threshold.</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20230203 17:53:24.810" endtime="20230203 17:53:24.810"/>
+</kw>
+<status status="NOT RUN" starttime="20230203 17:53:24.810" endtime="20230203 17:53:24.810"/>
+</branch>
+<status status="PASS" starttime="20230203 17:53:24.810" endtime="20230203 17:53:24.810"/>
+</if>
+<status status="PASS" starttime="20230203 17:53:24.809" endtime="20230203 17:53:24.810"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.782" endtime="20230203 17:53:24.810"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.782" endtime="20230203 17:53:24.810"/>
+</iter>
+<iter>
+<var name="${address}">8.8.8.8</var>
+<kw name="Log" library="BuiltIn">
+<arg>${address}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230203 17:53:24.810" level="INFO">8.8.8.8</msg>
+<status status="PASS" starttime="20230203 17:53:24.810" endtime="20230203 17:53:24.810"/>
+</kw>
+<kw name="Loss and Ping Within Acceptable Thresholds">
+<arg>address=${address}</arg>
+<arg>num packets=1</arg>
+<kw name="Ping and Process Response">
+<arg>${address}</arg>
+<arg>${num packets}</arg>
+<kw name="Ping Address" library="PingLibrary">
+<var>${response}</var>
+<arg>${address}</arg>
+<arg>${num packets}</arg>
+<msg timestamp="20230203 17:53:24.827" level="INFO">${response} = {'sent': '1', 'rcvd': '1', 'lost': '0', 'loss': '0', 'min_ping': '6', 'max_ping': '6', 'avg_ping': '6'}</msg>
+<status status="PASS" starttime="20230203 17:53:24.811" endtime="20230203 17:53:24.827"/>
+</kw>
+<kw name="Process Response">
+<arg>${response}</arg>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${LOSS}</arg>
+<arg>${response}[loss]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.828" level="INFO">${LOSS} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.827" endtime="20230203 17:53:24.828"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${AVG PING}</arg>
+<arg>${response}[avg_ping]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.828" level="INFO">${AVG PING} = 6</msg>
+<status status="PASS" starttime="20230203 17:53:24.828" endtime="20230203 17:53:24.828"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${SENT}</arg>
+<arg>${response}[sent]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.828" level="INFO">${SENT} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.828" endtime="20230203 17:53:24.828"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${RECEIVED}</arg>
+<arg>${response}[rcvd]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.828" level="INFO">${RECEIVED} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.828" endtime="20230203 17:53:24.828"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${LOST}</arg>
+<arg>${response}[lost]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.829" level="INFO">${LOST} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.829" endtime="20230203 17:53:24.829"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.827" endtime="20230203 17:53:24.829"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.811" endtime="20230203 17:53:24.829"/>
+</kw>
+<kw name="Compare Average Ping with Threshold">
+<kw name="Log" library="BuiltIn">
+<arg>Average ping over ${RECEIVED}/${SENT} packets is ${AVG PING}ms</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230203 17:53:24.829" level="INFO">Average ping over 1/1 packets is 6ms</msg>
+<status status="PASS" starttime="20230203 17:53:24.829" endtime="20230203 17:53:24.829"/>
+</kw>
+<if>
+<branch type="IF" condition="${AVG PING} &gt; ${MAX AVG PING}">
+<kw name="Fail" library="BuiltIn">
+<arg>${AVG PING}ms is above ${MAX AVG PING}ms threshold.</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20230203 17:53:24.829" endtime="20230203 17:53:24.829"/>
+</kw>
+<status status="NOT RUN" starttime="20230203 17:53:24.829" endtime="20230203 17:53:24.829"/>
+</branch>
+<status status="PASS" starttime="20230203 17:53:24.829" endtime="20230203 17:53:24.830"/>
+</if>
+<status status="PASS" starttime="20230203 17:53:24.829" endtime="20230203 17:53:24.830"/>
+</kw>
+<kw name="Compare Loss with Threshold">
+<kw name="Log" library="BuiltIn">
+<arg>Sent \= ${SENT}, Received \= ${RECEIVED}, Lost \= ${LOST}, Packet Loss \= ${LOSS}%</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230203 17:53:24.830" level="INFO">Sent = 1, Received = 1, Lost = 0, Packet Loss = 0%</msg>
+<status status="PASS" starttime="20230203 17:53:24.830" endtime="20230203 17:53:24.830"/>
+</kw>
+<if>
+<branch type="IF" condition="${LOSS} &gt; ${MAX LOSS}">
+<kw name="Fail" library="BuiltIn">
+<arg>${LOSS}% loss is above ${MAX LOSS}% threshold.</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20230203 17:53:24.830" endtime="20230203 17:53:24.830"/>
+</kw>
+<status status="NOT RUN" starttime="20230203 17:53:24.830" endtime="20230203 17:53:24.830"/>
+</branch>
+<status status="PASS" starttime="20230203 17:53:24.830" endtime="20230203 17:53:24.830"/>
+</if>
+<status status="PASS" starttime="20230203 17:53:24.830" endtime="20230203 17:53:24.830"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.810" endtime="20230203 17:53:24.830"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.810" endtime="20230203 17:53:24.830"/>
+</iter>
+<iter>
+<var name="${address}">8.8.4.4</var>
+<kw name="Log" library="BuiltIn">
+<arg>${address}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230203 17:53:24.831" level="INFO">8.8.4.4</msg>
+<status status="PASS" starttime="20230203 17:53:24.831" endtime="20230203 17:53:24.831"/>
+</kw>
+<kw name="Loss and Ping Within Acceptable Thresholds">
+<arg>address=${address}</arg>
+<arg>num packets=1</arg>
+<kw name="Ping and Process Response">
+<arg>${address}</arg>
+<arg>${num packets}</arg>
+<kw name="Ping Address" library="PingLibrary">
+<var>${response}</var>
+<arg>${address}</arg>
+<arg>${num packets}</arg>
+<msg timestamp="20230203 17:53:24.847" level="INFO">${response} = {'sent': '1', 'rcvd': '1', 'lost': '0', 'loss': '0', 'min_ping': '6', 'max_ping': '6', 'avg_ping': '6'}</msg>
+<status status="PASS" starttime="20230203 17:53:24.831" endtime="20230203 17:53:24.847"/>
+</kw>
+<kw name="Process Response">
+<arg>${response}</arg>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${LOSS}</arg>
+<arg>${response}[loss]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.848" level="INFO">${LOSS} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.847" endtime="20230203 17:53:24.848"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${AVG PING}</arg>
+<arg>${response}[avg_ping]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.848" level="INFO">${AVG PING} = 6</msg>
+<status status="PASS" starttime="20230203 17:53:24.848" endtime="20230203 17:53:24.848"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${SENT}</arg>
+<arg>${response}[sent]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.848" level="INFO">${SENT} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.848" endtime="20230203 17:53:24.848"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${RECEIVED}</arg>
+<arg>${response}[rcvd]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.848" level="INFO">${RECEIVED} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:24.848" endtime="20230203 17:53:24.848"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${LOST}</arg>
+<arg>${response}[lost]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.849" level="INFO">${LOST} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.848" endtime="20230203 17:53:24.849"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.847" endtime="20230203 17:53:24.849"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.831" endtime="20230203 17:53:24.849"/>
+</kw>
+<kw name="Compare Average Ping with Threshold">
+<kw name="Log" library="BuiltIn">
+<arg>Average ping over ${RECEIVED}/${SENT} packets is ${AVG PING}ms</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230203 17:53:24.849" level="INFO">Average ping over 1/1 packets is 6ms</msg>
+<status status="PASS" starttime="20230203 17:53:24.849" endtime="20230203 17:53:24.849"/>
+</kw>
+<if>
+<branch type="IF" condition="${AVG PING} &gt; ${MAX AVG PING}">
+<kw name="Fail" library="BuiltIn">
+<arg>${AVG PING}ms is above ${MAX AVG PING}ms threshold.</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20230203 17:53:24.849" endtime="20230203 17:53:24.849"/>
+</kw>
+<status status="NOT RUN" starttime="20230203 17:53:24.849" endtime="20230203 17:53:24.849"/>
+</branch>
+<status status="PASS" starttime="20230203 17:53:24.849" endtime="20230203 17:53:24.849"/>
+</if>
+<status status="PASS" starttime="20230203 17:53:24.849" endtime="20230203 17:53:24.850"/>
+</kw>
+<kw name="Compare Loss with Threshold">
+<kw name="Log" library="BuiltIn">
+<arg>Sent \= ${SENT}, Received \= ${RECEIVED}, Lost \= ${LOST}, Packet Loss \= ${LOSS}%</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230203 17:53:24.850" level="INFO">Sent = 1, Received = 1, Lost = 0, Packet Loss = 0%</msg>
+<status status="PASS" starttime="20230203 17:53:24.850" endtime="20230203 17:53:24.850"/>
+</kw>
+<if>
+<branch type="IF" condition="${LOSS} &gt; ${MAX LOSS}">
+<kw name="Fail" library="BuiltIn">
+<arg>${LOSS}% loss is above ${MAX LOSS}% threshold.</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20230203 17:53:24.850" endtime="20230203 17:53:24.850"/>
+</kw>
+<status status="NOT RUN" starttime="20230203 17:53:24.850" endtime="20230203 17:53:24.850"/>
+</branch>
+<status status="PASS" starttime="20230203 17:53:24.850" endtime="20230203 17:53:24.850"/>
+</if>
+<status status="PASS" starttime="20230203 17:53:24.850" endtime="20230203 17:53:24.850"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.831" endtime="20230203 17:53:24.850"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.830" endtime="20230203 17:53:24.850"/>
+</iter>
+<status status="PASS" starttime="20230203 17:53:24.739" endtime="20230203 17:53:24.850"/>
+</for>
+<status status="PASS" starttime="20230203 17:53:24.736" endtime="20230203 17:53:24.851"/>
+</test>
+<test id="s1-t7" name="There exists a connection to a host (text file)" line="35">
+<kw name="Reset Values">
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${LOSS}</arg>
+<arg>0</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.853" level="INFO">${LOSS} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.853" endtime="20230203 17:53:24.853"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${AVG PING}</arg>
+<arg>0</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.854" level="INFO">${AVG PING} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.853" endtime="20230203 17:53:24.854"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${SENT}</arg>
+<arg>0</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.854" level="INFO">${SENT} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.854" endtime="20230203 17:53:24.854"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${RECEIVED}</arg>
+<arg>0</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.854" level="INFO">${RECEIVED} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.854" endtime="20230203 17:53:24.854"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${LOST}</arg>
+<arg>0</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:24.854" level="INFO">${LOST} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.854" endtime="20230203 17:53:24.854"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.853" endtime="20230203 17:53:24.854"/>
+</kw>
+<kw name="Get File" library="OperatingSystem">
+<var>${contents}</var>
+<arg>badhosts.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20230203 17:53:24.855" level="INFO" html="true">Getting file '&lt;a href="file://D:\Livewire\Repos\robot-pingtest\badhosts.txt"&gt;D:\Livewire\Repos\robot-pingtest\badhosts.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20230203 17:53:24.856" level="INFO">${contents} = 9.8.8.8
+2.8.8.8
+3.8.8.8
+1.1.1.1
+6.8.8.8</msg>
+<status status="PASS" starttime="20230203 17:53:24.855" endtime="20230203 17:53:24.856"/>
+</kw>
+<kw name="Split To Lines" library="String">
+<var>@{addresses}</var>
+<arg>${contents}</arg>
+<doc>Splits the given string to lines.</doc>
+<msg timestamp="20230203 17:53:24.856" level="INFO">5 lines returned</msg>
+<msg timestamp="20230203 17:53:24.856" level="INFO">@{addresses} = [ 9.8.8.8 | 2.8.8.8 | 3.8.8.8 | 1.1.1.1 | 6.8.8.8 ]</msg>
+<status status="PASS" starttime="20230203 17:53:24.856" endtime="20230203 17:53:24.856"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${num addresses}</var>
+<arg>${addresses}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20230203 17:53:24.857" level="INFO">Length is 5</msg>
+<msg timestamp="20230203 17:53:24.857" level="INFO">${num addresses} = 5</msg>
+<status status="PASS" starttime="20230203 17:53:24.857" endtime="20230203 17:53:24.857"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230203 17:53:24.857" level="INFO">${index} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:24.857" endtime="20230203 17:53:24.857"/>
+</kw>
+<while condition="${index} &lt; ${num addresses}">
+<iter>
+<try>
+<branch type="TRY">
+<kw name="Ping and Process Response">
+<arg>${addresses}[${index}]</arg>
+<arg>1</arg>
+<kw name="Ping Address" library="PingLibrary">
+<var>${response}</var>
+<arg>${address}</arg>
+<arg>${num packets}</arg>
+<msg timestamp="20230203 17:53:28.660" level="FAIL">Host 9.8.8.8 unreachable.</msg>
+<status status="FAIL" starttime="20230203 17:53:24.858" endtime="20230203 17:53:28.662"/>
+</kw>
+<kw name="Process Response">
+<arg>${response}</arg>
+<status status="NOT RUN" starttime="20230203 17:53:28.662" endtime="20230203 17:53:28.662"/>
+</kw>
+<status status="FAIL" starttime="20230203 17:53:24.858" endtime="20230203 17:53:28.662"/>
+</kw>
+<status status="FAIL" starttime="20230203 17:53:24.858" endtime="20230203 17:53:28.662"/>
+</branch>
+<branch type="EXCEPT">
+<pattern>Host ${addresses}[${index}] unreachable.</pattern>
+<kw name="No Operation" library="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" starttime="20230203 17:53:28.662" endtime="20230203 17:53:28.662"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:28.662" endtime="20230203 17:53:28.662"/>
+</branch>
+<status status="PASS" starttime="20230203 17:53:24.858" endtime="20230203 17:53:28.662"/>
+</try>
+<if>
+<branch type="IF" condition="${RECEIVED} &gt; 0">
+<kw name="Pass Execution" library="BuiltIn">
+<arg>Found a connection to host ${addresses}[${index}].</arg>
+<doc>Skips rest of the current test, setup, or teardown with PASS status.</doc>
+<status status="NOT RUN" starttime="20230203 17:53:28.662" endtime="20230203 17:53:28.662"/>
+</kw>
+<status status="NOT RUN" starttime="20230203 17:53:28.662" endtime="20230203 17:53:28.662"/>
+</branch>
+<status status="PASS" starttime="20230203 17:53:28.662" endtime="20230203 17:53:28.663"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230203 17:53:28.663" level="INFO">${index} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:28.663" endtime="20230203 17:53:28.663"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.857" endtime="20230203 17:53:28.663"/>
+</iter>
+<iter>
+<try>
+<branch type="TRY">
+<kw name="Ping and Process Response">
+<arg>${addresses}[${index}]</arg>
+<arg>1</arg>
+<kw name="Ping Address" library="PingLibrary">
+<var>${response}</var>
+<arg>${address}</arg>
+<arg>${num packets}</arg>
+<msg timestamp="20230203 17:53:32.657" level="FAIL">Host 2.8.8.8 unreachable.</msg>
+<status status="FAIL" starttime="20230203 17:53:28.663" endtime="20230203 17:53:32.658"/>
+</kw>
+<kw name="Process Response">
+<arg>${response}</arg>
+<status status="NOT RUN" starttime="20230203 17:53:32.658" endtime="20230203 17:53:32.658"/>
+</kw>
+<status status="FAIL" starttime="20230203 17:53:28.663" endtime="20230203 17:53:32.658"/>
+</kw>
+<status status="FAIL" starttime="20230203 17:53:28.663" endtime="20230203 17:53:32.658"/>
+</branch>
+<branch type="EXCEPT">
+<pattern>Host ${addresses}[${index}] unreachable.</pattern>
+<kw name="No Operation" library="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" starttime="20230203 17:53:32.658" endtime="20230203 17:53:32.659"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:32.658" endtime="20230203 17:53:32.659"/>
+</branch>
+<status status="PASS" starttime="20230203 17:53:28.663" endtime="20230203 17:53:32.659"/>
+</try>
+<if>
+<branch type="IF" condition="${RECEIVED} &gt; 0">
+<kw name="Pass Execution" library="BuiltIn">
+<arg>Found a connection to host ${addresses}[${index}].</arg>
+<doc>Skips rest of the current test, setup, or teardown with PASS status.</doc>
+<status status="NOT RUN" starttime="20230203 17:53:32.659" endtime="20230203 17:53:32.659"/>
+</kw>
+<status status="NOT RUN" starttime="20230203 17:53:32.659" endtime="20230203 17:53:32.659"/>
+</branch>
+<status status="PASS" starttime="20230203 17:53:32.659" endtime="20230203 17:53:32.659"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230203 17:53:32.659" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20230203 17:53:32.659" endtime="20230203 17:53:32.659"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:28.663" endtime="20230203 17:53:32.659"/>
+</iter>
+<iter>
+<try>
+<branch type="TRY">
+<kw name="Ping and Process Response">
+<arg>${addresses}[${index}]</arg>
+<arg>1</arg>
+<kw name="Ping Address" library="PingLibrary">
+<var>${response}</var>
+<arg>${address}</arg>
+<arg>${num packets}</arg>
+<msg timestamp="20230203 17:53:36.666" level="FAIL">Host 3.8.8.8 unreachable.</msg>
+<status status="FAIL" starttime="20230203 17:53:32.660" endtime="20230203 17:53:36.667"/>
+</kw>
+<kw name="Process Response">
+<arg>${response}</arg>
+<status status="NOT RUN" starttime="20230203 17:53:36.667" endtime="20230203 17:53:36.667"/>
+</kw>
+<status status="FAIL" starttime="20230203 17:53:32.660" endtime="20230203 17:53:36.667"/>
+</kw>
+<status status="FAIL" starttime="20230203 17:53:32.660" endtime="20230203 17:53:36.667"/>
+</branch>
+<branch type="EXCEPT">
+<pattern>Host ${addresses}[${index}] unreachable.</pattern>
+<kw name="No Operation" library="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" starttime="20230203 17:53:36.667" endtime="20230203 17:53:36.667"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:36.667" endtime="20230203 17:53:36.667"/>
+</branch>
+<status status="PASS" starttime="20230203 17:53:32.659" endtime="20230203 17:53:36.667"/>
+</try>
+<if>
+<branch type="IF" condition="${RECEIVED} &gt; 0">
+<kw name="Pass Execution" library="BuiltIn">
+<arg>Found a connection to host ${addresses}[${index}].</arg>
+<doc>Skips rest of the current test, setup, or teardown with PASS status.</doc>
+<status status="NOT RUN" starttime="20230203 17:53:36.668" endtime="20230203 17:53:36.668"/>
+</kw>
+<status status="NOT RUN" starttime="20230203 17:53:36.667" endtime="20230203 17:53:36.668"/>
+</branch>
+<status status="PASS" starttime="20230203 17:53:36.667" endtime="20230203 17:53:36.668"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230203 17:53:36.668" level="INFO">${index} = 3</msg>
+<status status="PASS" starttime="20230203 17:53:36.668" endtime="20230203 17:53:36.668"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:32.659" endtime="20230203 17:53:36.668"/>
+</iter>
+<iter>
+<try>
+<branch type="TRY">
+<kw name="Ping and Process Response">
+<arg>${addresses}[${index}]</arg>
+<arg>1</arg>
+<kw name="Ping Address" library="PingLibrary">
+<var>${response}</var>
+<arg>${address}</arg>
+<arg>${num packets}</arg>
+<msg timestamp="20230203 17:53:36.684" level="INFO">${response} = {'sent': '1', 'rcvd': '1', 'lost': '0', 'loss': '0', 'min_ping': '5', 'max_ping': '5', 'avg_ping': '5'}</msg>
+<status status="PASS" starttime="20230203 17:53:36.668" endtime="20230203 17:53:36.684"/>
+</kw>
+<kw name="Process Response">
+<arg>${response}</arg>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${LOSS}</arg>
+<arg>${response}[loss]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:36.685" level="INFO">${LOSS} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:36.685" endtime="20230203 17:53:36.685"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${AVG PING}</arg>
+<arg>${response}[avg_ping]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:36.685" level="INFO">${AVG PING} = 5</msg>
+<status status="PASS" starttime="20230203 17:53:36.685" endtime="20230203 17:53:36.685"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${SENT}</arg>
+<arg>${response}[sent]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:36.685" level="INFO">${SENT} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:36.685" endtime="20230203 17:53:36.685"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${RECEIVED}</arg>
+<arg>${response}[rcvd]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:36.686" level="INFO">${RECEIVED} = 1</msg>
+<status status="PASS" starttime="20230203 17:53:36.685" endtime="20230203 17:53:36.686"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${LOST}</arg>
+<arg>${response}[lost]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230203 17:53:36.686" level="INFO">${LOST} = 0</msg>
+<status status="PASS" starttime="20230203 17:53:36.686" endtime="20230203 17:53:36.686"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:36.684" endtime="20230203 17:53:36.686"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:36.668" endtime="20230203 17:53:36.686"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:36.668" endtime="20230203 17:53:36.686"/>
+</branch>
+<branch type="EXCEPT">
+<pattern>Host ${addresses}[${index}] unreachable.</pattern>
+<kw name="No Operation" library="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="NOT RUN" starttime="20230203 17:53:36.686" endtime="20230203 17:53:36.686"/>
+</kw>
+<status status="NOT RUN" starttime="20230203 17:53:36.686" endtime="20230203 17:53:36.686"/>
+</branch>
+<status status="PASS" starttime="20230203 17:53:36.668" endtime="20230203 17:53:36.686"/>
+</try>
+<if>
+<branch type="IF" condition="${RECEIVED} &gt; 0">
+<kw name="Pass Execution" library="BuiltIn">
+<arg>Found a connection to host ${addresses}[${index}].</arg>
+<doc>Skips rest of the current test, setup, or teardown with PASS status.</doc>
+<msg timestamp="20230203 17:53:36.687" level="INFO">Execution passed with message:
+Found a connection to host 1.1.1.1.</msg>
+<status status="PASS" starttime="20230203 17:53:36.686" endtime="20230203 17:53:36.687"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:36.686" endtime="20230203 17:53:36.687"/>
+</branch>
+<status status="PASS" starttime="20230203 17:53:36.686" endtime="20230203 17:53:36.687"/>
+</if>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20230203 17:53:36.687" endtime="20230203 17:53:36.687"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:36.668" endtime="20230203 17:53:36.687"/>
+</iter>
+<status status="PASS" starttime="20230203 17:53:24.857" endtime="20230203 17:53:36.687"/>
+</while>
+<kw name="Fail" library="BuiltIn">
+<arg>Could not find a connection to any host.</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20230203 17:53:36.687" endtime="20230203 17:53:36.687"/>
+</kw>
+<status status="PASS" starttime="20230203 17:53:24.852" endtime="20230203 17:53:36.688">Found a connection to host 1.1.1.1.</status>
+</test>
+<status status="PASS" starttime="20230203 17:53:24.553" endtime="20230203 17:53:36.689"/>
 </suite>
 <statistics>
 <total>
-<stat pass="5" fail="0" skip="0">All Tests</stat>
+<stat pass="7" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="5" fail="0" skip="0" id="s1" name="Ping Test">Ping Test</stat>
+<stat pass="7" fail="0" skip="0" id="s1" name="Ping Test">Ping Test</stat>
 </suite>
 </statistics>
 <errors>
