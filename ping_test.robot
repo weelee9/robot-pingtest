@@ -5,7 +5,7 @@ Library    String
 
 *** Test Cases ***
 Given host is reachable
-    Ping and Process Response    address=8.8.8.8    num packets=1
+    Ping and Get Statistics    address=8.8.8.8    num packets=1
 
 Loss within acceptable threshold
     Compare Loss with Threshold
@@ -30,10 +30,13 @@ Connection to multiple given hosts is good (text file)
     FOR    ${address}    IN    @{addresses}
         Log    ${address}
         Loss and Ping Within Acceptable Thresholds    address=${address}    num packets=1
+        Append Response To Output
     END
 
+    Write Output To Json    good-connection-multiple-hosts.json
+
 There exists a connection to a host (text file)
-    Reset Values
+    Set Global Variable    ${RESPONSE}    ${EMPTY}
     ${contents} =     Get File    badhosts.txt
     @{addresses} =    Split To Lines    ${contents}
     ${num addresses} =    Get Length    ${addresses}
@@ -41,13 +44,10 @@ There exists a connection to a host (text file)
 
     WHILE    ${index} < ${num addresses}
         TRY
-            Ping and Process Response    ${addresses}[${index}]    1
+            Ping and Get Statistics    ${addresses}[${index}]    1
+            Pass Execution    Found a connection to host ${addresses}[${index}].
         EXCEPT    Host ${addresses}[${index}] unreachable.
             No Operation
-        END
-
-        IF    ${RECEIVED} > 0
-            Pass Execution    Found a connection to host ${addresses}[${index}].    
         END
         
         ${index} =     Evaluate    ${index} + 1
@@ -56,43 +56,28 @@ There exists a connection to a host (text file)
     Fail    Could not find a connection to any host.
 
 *** Keywords ***
-Ping and Process Response
+Ping and Get Statistics
     [Arguments]    ${address}    ${num packets}
     ${response} =    Ping Address    ${address}    ${num packets}
-    Process Response    ${response}
-    
-Process Response
-    [Arguments]    ${response}
-    Set Global Variable    ${LOSS}        ${response}[loss]
-    Set Global Variable    ${AVG PING}    ${response}[avg_ping]
-    Set Global Variable    ${SENT}        ${response}[sent]
-    Set Global Variable    ${RECEIVED}    ${response}[rcvd]
-    Set Global Variable    ${LOST}        ${response}[lost]
-
-Reset Values
-    Set Global Variable    ${LOSS}        0
-    Set Global Variable    ${AVG PING}    0
-    Set Global Variable    ${SENT}        0
-    Set Global Variable    ${RECEIVED}    0
-    Set Global Variable    ${LOST}        0
+    Set Global Variable    ${RESPONSE}    ${response}
 
 Compare Loss with Threshold
-    Log    Sent \= ${SENT}, Received \= ${RECEIVED}, Lost \= ${LOST}, Packet Loss \= ${LOSS}%
+    Log    Sent \= ${RESPONSE}[sent], Received \= ${RESPONSE}[rcvd], Packet Loss \= ${RESPONSE}[loss]%
 
-    IF    ${LOSS} > ${MAX LOSS}
-        Fail    ${LOSS}% loss is above ${MAX LOSS}% threshold.
+    IF    ${RESPONSE}[loss] > ${MAX LOSS}
+        Fail    ${RESPONSE}[loss]% loss is above ${MAX LOSS}% threshold.
     END
 
 Compare Average Ping with Threshold
-    Log    Average ping over ${RECEIVED}/${SENT} packets is ${AVG PING}ms
+    Log    Average ping over ${RESPONSE}[rcvd]/${RESPONSE}[sent] packets is ${RESPONSE}[avg_ping]ms
 
-    IF    ${AVG PING} > ${MAX AVG PING}
-        Fail    ${AVG PING}ms is above ${MAX AVG PING}ms threshold.
+    IF    ${RESPONSE}[avg_ping] > ${MAX AVG PING}
+        Fail    ${RESPONSE}[avg_ping]ms is above ${MAX AVG PING}ms threshold.
     END
 
 Loss and Ping Within Acceptable Thresholds
     [Arguments]    ${address}    ${num packets}
-    Ping and Process Response    ${address}    ${num packets}
+    Ping and Get Statistics    ${address}    ${num packets}
     Compare Average Ping with Threshold
     Compare Loss with Threshold
 
@@ -100,8 +85,4 @@ Loss and Ping Within Acceptable Thresholds
 ${MAX AVG PING}    50
 ${MAX LOSS}        2
 
-${SENT}        0
-${RECEIVED}    0
-${LOST}        0
-${LOSS}        0
-${AVG PING}    0
+${RESPONSE}    ${EMPTY}
